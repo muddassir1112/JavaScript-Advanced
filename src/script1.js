@@ -24,7 +24,7 @@ function deleteRow()
 {
     // for(var i = 1; i < x; i++){
     var x = document.getElementById('rowId');
-    x.deleteRow(1);
+    x.deleteRow();
 }
 
 // deleteRow()
