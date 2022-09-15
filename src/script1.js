@@ -1,37 +1,37 @@
-let btnAdd = document.querySelector('button');
-let table = document.querySelector('table');
-
-let idInput = document.querySelector('#id');
-let nameInput = document.querySelector('#name');
-let salaryInput = document.querySelector('#salary');
-
-btnAdd.addEventListener('click', () =>{
-let id = idInput.value;
-let name = nameInput.value;
-let salary = salaryInput.value;
-if(id==""&& name=="" && salary==""){
-    alert("Enter Values");
+var data = [];
+function add() {
+  let id = document.getElementById("id").value;
+  let name = document.getElementById("name").value;
+  let salary = document.getElementById("salary").value;
+  var val = {
+    ID: id,
+    Name: name,
+    Salary: salary,
+  };
+  data.push(val);
+  display();
 }
-let template = `<tr>
-<td>${id}</td>
-<td>${name}</td>
-<td>${salary}</td>
-<td><button onclick='deleteRow()'>Delete</button></td>
-</tr>`
- table.innerHTML += template;
-});
-function deleteRow()
-{
-    // for(var i = 1; i < x; i++){
-    var x = document.getElementById('rowId');
-    x.deleteRow();
+function display() {
+  var table =
+    "<table><tr><th>ID</th><th>Name</th><th>Salary</th><th>Action</tr>";
+  data.forEach((element) => {
+    table +=
+      "<tr><td>" +
+      element.ID +
+      "</td><td>" +
+      element.Name +
+      "</td><td>" +
+      element.Salary +
+      "</td><td><a href='#' onclick=deleteRow('"+element.ID+ "')>Delete</td></tr>";
+  });
+  table += "</table>";
+  document.getElementById("demo").innerHTML = table;
 }
-
-// deleteRow()
-
-    
-
-    // else
-    // {
-    // alert("Please Enter Correct Row Id!");
-    // }
+function deleteRow(val){
+    for(var i=0; i< data.length ; i++){
+        if (val == data[i].ID){
+            data.splice(i,1);
+        }
+    }
+    display();
+}

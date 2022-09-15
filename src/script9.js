@@ -4,8 +4,8 @@ function add() {
     let name = document.getElementById("name").value;
     let salary = document.getElementById("salary").value;
     try{
-  if(name == "") throw "Empty field not allow"
-  if(!isNaN(name))throw "Number not reuiqred in Name Field"
+  if(name == "") throw "Empty field not allow in Name field"
+  if(!isNaN(name))throw "Number not required in Name Field"
     var val = {
       ID: id,
       Name: name,
@@ -17,7 +17,7 @@ function add() {
   
   }
   catch(err){
-    document.getElementById('demo').innerHTML= err;
+    document.getElementById('demo1').innerHTML= err;
   }
 }
   function display() {
