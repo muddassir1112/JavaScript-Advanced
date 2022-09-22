@@ -8,8 +8,23 @@ function add() {
     Name: name,
     Salary: salary,
   };
+  if(val.ID == "" && val.Name == "" && val.Salary == "")
+  {
+    alert("Fields are mandatory");
+  }
+  else if(val.ID == ""){
+    alert("Please enter Id");
+  }
+  else if(val.Name == ""){
+    alert("Please enter name");
+  }
+  else if(val.Salary == ""){
+    alert("Please enter Salary");
+  }
+  else{
   data.push(val);
   display();
+}
 }
 function display() {
   var table =
